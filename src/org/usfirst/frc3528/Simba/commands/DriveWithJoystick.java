@@ -38,6 +38,22 @@ public class  DriveWithJoystick extends Command {
     	double left = Robot.oi.driveStick.getRawAxis(1);
     	double right = Robot.oi.driveStick.getRawAxis(5);
     	Robot.driveTrain.driveWithJoystick(left, right);
+    	Robot.driveTrain.printAccelToDashboard();
+    	double yVal = Robot.driveTrain.getAccelYVal();
+    	boolean disableCheck = Robot.driveTrain.checkDMCValue();
+    	if (!disableCheck) {
+    		if (yVal > 0.2) {
+        		System.out.println("This is where you'd run the Drive Forward Command.");
+        		Robot.driveTrain.toggleDMCValue();
+        	}
+    	} else {
+    		if (yVal < 0.05) {
+    			System.out.println("This is the end of the Drive Forward Command.");
+    			Robot.driveTrain.toggleDMCValue();
+    		}
+    	}
+    	
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
