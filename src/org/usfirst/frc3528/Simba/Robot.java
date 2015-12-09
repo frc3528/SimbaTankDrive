@@ -106,7 +106,18 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during test mode
      */
+    public void testInit() {
+    	LiveWindow.setEnabled(false);
+    	
+    	new PushBot().start();
+    	
+    }
+    
+    
     public void testPeriodic() {
-        LiveWindow.run();
+    	
+    	
+    	Scheduler.getInstance().run();
+        //LiveWindow.run();
     }
 }
