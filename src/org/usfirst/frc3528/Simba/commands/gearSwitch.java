@@ -12,7 +12,6 @@
 package org.usfirst.frc3528.Simba.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc3528.Simba.Robot;
 
 /**
  *
