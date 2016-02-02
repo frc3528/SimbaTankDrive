@@ -8,7 +8,11 @@ target/
 
 
 # FRC Specific #
-build.xml
+
+# build.xml is needed
+# build.xml
+
+# sysProps.xml will be regenerated on usb deploy
 sysProps.xml
 sysProps.xml.orig
 
