@@ -8,7 +8,9 @@ target/
 
 
 # FRC Specific #
-
+build.xml
+sysProps.xml
+sysProps.xml.orig
 
 
 # Class Files #
