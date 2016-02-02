@@ -1,14 +1,10 @@
-# Eclipse Specific #
+# Directories #
 /build/
 /bin/
-/dist/
 target/
-bin/**
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
+ 
+# OS Files #
+.DS_Store
 
 
 # FRC Specific #
@@ -22,3 +18,66 @@ tmp/**/*
 *.jar
 *.war
 *.ear
+*.db
+
+
+
+
+######################
+# Windows
+######################
+ 
+# Windows image file caches
+Thumbs.db 
+ 
+# Folder config file
+Desktop.ini
+ 
+######################
+# OSX
+######################
+ 
+.DS_Store
+.svn
+ 
+# Thumbnails
+._*
+ 
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+ 
+ 
+######################
+# Eclipse
+######################
+ 
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+/src/main/resources/rebel.xml
+# External tool builders
+.externalToolBuilders/
+ 
+# Locally stored "Eclipse launch configurations"
+*.launch
+ 
+# CDT-specific
+.cproject
+ 
+# PDT-specific
+.buildpath
+
+
+
