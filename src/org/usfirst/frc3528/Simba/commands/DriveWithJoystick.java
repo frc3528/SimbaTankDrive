@@ -12,7 +12,10 @@
 package org.usfirst.frc3528.Simba.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc3528.Simba.Robot;
+import org.usfirst.frc3528.Simba.RobotMap;
 import org.usfirst.frc3528.Simba.subsystems.DriveTrain;
 
 /**
@@ -37,17 +40,26 @@ public class  DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (!RobotMap.driveWithSingleJoystick) {
+    		
+    		double left = Robot.oi.driveStick.getRawAxis(1);
+    		double right = Robot.oi.driveStick.getRawAxis(5);
+    		dt.driveWithJoystick(left, right);
+    	} else {
+    		double left = Robot.oi.driveStick.getRawAxis(1);
+    		double right = Robot.oi.driveStick.getRawAxis(1);
+    		dt.driveWithJoystick(left, right);
+    	}
     	
-    	double left = Robot.oi.driveStick.getRawAxis(1);
-    	double right = Robot.oi.driveStick.getRawAxis(5);
-    	dt.driveWithJoystick(left, right);
+    	SmartDashboard.putBoolean("In Single Joystick Mode: ", RobotMap.driveWithSingleJoystick);
+    	
     	dt.printAccelToDashboard();
     	
-    	double yVal = dt.getAccelYVal();
+    	//double yVal = dt.getAccelYVal();
     	
     	//boolean disableCheck = dt.checkDMCValue();
     	
-    	if ( !dt.checkDMCValue() ) {
+    	/*if ( !dt.checkDMCValue() ) {
     		if (yVal > 0.2) {
         		System.out.println("This is where you'd run the Drive Forward Command.");
         		dt.toggleDMCValue();
@@ -55,7 +67,7 @@ public class  DriveWithJoystick extends Command {
     	} else if (yVal < 0.05) {
     			System.out.println("This is the end of the Drive Forward Command.");
     			dt.toggleDMCValue();
-    	}
+    	}*/
     	
     	
     }
