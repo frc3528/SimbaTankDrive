@@ -24,6 +24,8 @@ import org.usfirst.frc3528.Simba.subsystems.DriveTrain;
 public class  DriveWithJoystick extends Command {
 	
 	DriveTrain dt = Robot.driveTrain;
+	
+	double gyroAngle;
 
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
@@ -36,6 +38,8 @@ public class  DriveWithJoystick extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	RobotMap.gyro.reset();
+    	RobotMap.gyro.calibrate();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -52,6 +56,9 @@ public class  DriveWithJoystick extends Command {
     	}
     	
     	SmartDashboard.putBoolean("In Single Joystick Mode: ", RobotMap.driveWithSingleJoystick);
+    	
+    	gyroAngle = RobotMap.gyro.getAngle();
+    	SmartDashboard.putNumber("Gyro Angle", gyroAngle);
     	
     	dt.printAccelToDashboard();
     	

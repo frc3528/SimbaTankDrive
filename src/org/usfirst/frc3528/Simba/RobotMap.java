@@ -11,12 +11,15 @@
 
 package org.usfirst.frc3528.Simba;
     
+import edu.wpi.first.wpilibj.ADXL362;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -35,6 +38,8 @@ public class RobotMap {
     public static Compressor driveTrainCompressor;
     public static DoubleSolenoid driveTrainShifter;
     public static CameraServer server;
+    public static ADXRS450_Gyro gyro;
+    public static ADXL362 accel;
     
     public static boolean driveWithSingleJoystick = false;
     
@@ -68,7 +73,9 @@ public class RobotMap {
         driveTrainShifter = new DoubleSolenoid(1, 1, 2);      
         LiveWindow.addActuator("GearShifter", "driveTrainShifter", driveTrainShifter);
         
-
+        gyro = new ADXRS450_Gyro();
+        
+        //accel = new ADXL362();
 
         
         server = CameraServer.getInstance();
