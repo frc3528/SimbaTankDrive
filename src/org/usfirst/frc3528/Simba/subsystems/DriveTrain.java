@@ -14,6 +14,8 @@ package org.usfirst.frc3528.Simba.subsystems;
 import org.usfirst.frc3528.Simba.RobotMap;
 import org.usfirst.frc3528.Simba.commands.*;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
@@ -30,6 +32,7 @@ public class DriveTrain extends Subsystem {
     SpeedController rearLeftMotor = RobotMap.driveTrainrearLeftMotor;
     SpeedController rearRightMotor = RobotMap.driveTrainrearRightMotor;
     RobotDrive tankDrive = RobotMap.driveTraintankDrive;
+   
 
 
     Accelerometer accel = new BuiltInAccelerometer(Accelerometer.Range.k4G);
@@ -47,7 +50,7 @@ public class DriveTrain extends Subsystem {
     
     }
     
-    public void driveWithJoystick(double left, double right) {
+    public void drive(double left, double right) {
     	tankDrive.tankDrive(left, right);
     }
     

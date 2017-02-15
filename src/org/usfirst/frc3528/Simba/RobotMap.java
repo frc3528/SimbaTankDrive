@@ -11,6 +11,8 @@
 
 package org.usfirst.frc3528.Simba;
     
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -21,6 +23,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -40,6 +43,7 @@ public class RobotMap {
     public static CameraServer server;
     public static ADXRS450_Gyro gyro;
     public static ADXL362 accel;
+    public static CANTalon shooterMotor;
     
     public static boolean driveWithSingleJoystick = false;
     
@@ -75,11 +79,14 @@ public class RobotMap {
         
         gyro = new ADXRS450_Gyro();
         
+        shooterMotor = new CANTalon(4);
+        shooterMotor.configEncoderCodesPerRev(400);
+        
         //accel = new ADXL362();
 
         
-        server = CameraServer.getInstance();
-        server.setQuality(50);
-        server.startAutomaticCapture("cam0");
+     //   server = CameraServer.getInstance();
+       // server.setQuality(50);
+     //   server.startAutomaticCapture("cam0");
     }
 }

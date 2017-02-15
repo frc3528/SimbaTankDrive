@@ -39,7 +39,7 @@ public class  DriveWithJoystick extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	RobotMap.gyro.reset();
-    	RobotMap.gyro.calibrate();
+    	//RobotMap.gyro.calibrate();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -48,11 +48,11 @@ public class  DriveWithJoystick extends Command {
     		
     		double left = Robot.oi.driveStick.getRawAxis(1);
     		double right = Robot.oi.driveStick.getRawAxis(5);
-    		dt.driveWithJoystick(left, right);
+    		dt.drive(left, right);
     	} else {
     		double left = Robot.oi.driveStick.getRawAxis(1);
     		double right = Robot.oi.driveStick.getRawAxis(1);
-    		dt.driveWithJoystick(left, right);
+    		dt.drive(left, right);
     	}
     	
     	SmartDashboard.putBoolean("In Single Joystick Mode: ", RobotMap.driveWithSingleJoystick);
